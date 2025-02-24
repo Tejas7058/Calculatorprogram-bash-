@@ -1,0 +1,43 @@
+
+
+read -p "Enter first number:" num1
+read -p "Enter second number:" num2
+
+echo "Select operation:"
+echo "1. Addition (+)"
+echo "2. Subraction (-)"
+echo "3. Multiplication (*)"
+echo "4. Division (/)"
+echo "5. Exit"
+read -p "Enter your choice(1-5): " choice 
+
+case $choice in
+
+  1) 
+    result=$((num1 + num2))
+    echo "result: $num1 + $num2 = $result"
+    ;;
+  2)
+    result=$((num1 - num2))
+    echo "result: $num1 - $num2 = $result"
+    ;;
+  3)
+    result=$((num1 * num2))
+    echo "result: $num1 * $num2 = $result"
+    ;;
+  4)
+   if [ "$num2" -ne 0 ]; then
+      result=$(echo "scale=2; $num1 / $num2" | bc)
+      echo "result: $num1 / $num2 = $result"
+   else 
+      echo "Error: Division by zero is not allowed!"
+   fi
+   ;;
+  5)
+    echo "Exiting calculator."
+    exit 0
+    ;;
+  *)
+    echo "Invalid Choice! Please Select between 1-5"
+    ;;
+esac
