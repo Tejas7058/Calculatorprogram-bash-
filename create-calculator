@@ -1,8 +1,10 @@
+while true; do 
 
-
+# Step1:Ask user for input numbers
 read -p "Enter first number:" num1
 read -p "Enter second number:" num2
 
+# Step2:Display operation choices
 echo "Select operation:"
 echo "1. Addition (+)"
 echo "2. Subraction (-)"
@@ -11,6 +13,7 @@ echo "4. Division (/)"
 echo "5. Exit"
 read -p "Enter your choice(1-5): " choice 
 
+ # Step 3: Perform the selected operation using case
 case $choice in
 
   1) 
@@ -41,3 +44,13 @@ case $choice in
     echo "Invalid Choice! Please Select between 1-5"
     ;;
 esac
+
+# Step 4: Ask user if they want to continue or exit
+ read -p "Do you want to perform another calculation? (yes/no): " continue_choice
+    if [ "$continue_choice" != "yes" ]; then
+        echo "Exiting calculator. Goodbye!"
+        exit 0
+    fi
+
+echo "-----------------------------------------------------------------------------------"
+done
